@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { X } from "lucide-react"
@@ -10,10 +11,64 @@ interface MegaMenuProps {
 }
 
 export default function MegaMenu({ type, onClose }: MegaMenuProps) {
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose()
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown)
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [onClose])
+
+  // Focus trap
+  useEffect(() => {
+    const menuElement = menuRef.current
+    if (!menuElement) return
+
+    const focusableElements = menuElement.querySelectorAll(
+      'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+    )
+
+    const firstElement = focusableElements[0] as HTMLElement
+    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement
+
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus()
+          e.preventDefault()
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement.focus()
+          e.preventDefault()
+        }
+      }
+    }
+
+    menuElement.addEventListener("keydown", handleTabKey)
+    return () => {
+      menuElement.removeEventListener("keydown", handleTabKey)
+    }
+  }, [])
+
   return (
-    <div className="border-b animate-slide-down bg-background">
+    <div className="border-b animate-slide-down bg-background" ref={menuRef}>
       <div className="container mx-auto px-4 py-6 relative">
-        <button className="absolute top-4 left-4 p-2 hover:bg-muted rounded-full transition-colors" onClick={onClose}>
+        <button
+          className="absolute top-4 left-4 p-2 hover:bg-muted rounded-full transition-colors"
+          onClick={onClose}
+          aria-label="Close menu"
+        >
           <X className="h-5 w-5" />
         </button>
 

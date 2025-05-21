@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Search, Menu, X } from "lucide-react"
+import { Search, Menu, X } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
 import LanguageSwitcher from "@/components/language-switcher"
@@ -34,18 +34,52 @@ export default function SiteHeader() {
             <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
               الرئيسية
             </Link>
-            <button
-              className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1"
-              onClick={() => toggleMegaMenu("podcasts")}
-            >
-              بودكاست
-            </button>
-            <button
-              className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1"
-              onClick={() => toggleMegaMenu("programs")}
-            >
-              برامج
-            </button>
+            <div className="relative group">
+              <button
+                className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1 py-2"
+                onClick={() => toggleMegaMenu("podcasts")}
+                onMouseEnter={() => setActiveMegaMenu("podcasts")}
+              >
+                <span>بودكاست</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </div>
+            <div className="relative group">
+              <button
+                className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1 py-2"
+                onClick={() => toggleMegaMenu("programs")}
+                onMouseEnter={() => setActiveMegaMenu("programs")}
+              >
+                <span>برامج</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </div>
             <Link href="/opinions" className="text-sm font-medium hover:text-primary transition-colors">
               آراء سياسية
             </Link>
@@ -181,8 +215,22 @@ export default function SiteHeader() {
       )}
 
       {/* Mega Menus */}
-      {activeMegaMenu === "podcasts" && <MegaMenu type="podcasts" onClose={() => setActiveMegaMenu(null)} />}
-      {activeMegaMenu === "programs" && <MegaMenu type="programs" onClose={() => setActiveMegaMenu(null)} />}
+      {activeMegaMenu === "podcasts" && (
+        <div 
+          className="absolute top-16 left-0 right-0 z-50"
+          onMouseLeave={() => setActiveMegaMenu(null)}
+        >
+          <MegaMenu type="podcasts" onClose={() => setActiveMegaMenu(null)} />
+        </div>
+      )}
+      {activeMegaMenu === "programs" && (
+        <div 
+          className="absolute top-16 left-0 right-0 z-50"
+          onMouseLeave={() => setActiveMegaMenu(null)}
+        >
+          <MegaMenu type="programs" onClose={() => setActiveMegaMenu(null)} />
+        </div>
+      )}
     </header>
   )
 }

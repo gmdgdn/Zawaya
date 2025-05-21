@@ -1,0 +1,65 @@
+{
+  "navigation": {
+    "home": "Home",
+    "podcasts": "Podcasts",
+    "programs": "Programs",
+    "opinions": "Political Opinions",
+    "articles": "Articles",
+    "documentaries": "Documentaries",
+    "civilization": "Eastern Civilization",
+    "about": "About Us",
+    "writers": "Writers' Platform",
+    "contact": "Contact Us"
+  },
+  "buttons": {
+    "subscribe": "Subscribe Now",
+    "explore": "Explore Content",
+    "newsletter": "Subscribe to Newsletter",
+    "watchNow": "Watch Now",
+    "browseEpisodes": "Browse Episodes",
+    "readMore": "Read More",
+    "listenNow": "Listen Now",
+    "viewAll": "View All"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "about": "About Zawaya",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Subscribe to our newsletter to receive the latest articles, podcasts, and videos.",
+    "emailPlaceholder": "Your email",
+    "copyright": "All rights reserved © 2025 Zawaya"
+  },
+  "search": {
+    "placeholder": "Search Zawaya..."
+  },
+  "podcasts": {
+    "video": "Video",
+    "audio": "Audio",
+    "latestEpisode": "Latest Episode",
+    "presenter": "Presenter",
+    "episodes": "episodes",
+    "with": "with"
+  },
+  "home": {
+    "hero": {
+      "title": "The Story From All Angles",
+      "subtitle": "An independent intellectual platform offering diverse content including articles, podcasts, and videos for a deeper understanding of a changing world"
+    },
+    "sections": {
+      "latestReleases": "Latest Releases",
+      "editorsPicks": "Editor's Picks",
+      "featuredPodcasts": "Featured Podcasts",
+      "exclusivePrograms": "Exclusive Programs",
+      "opinions": "Zawaya Opinions",
+      "exploreArticles": "Explore Our Articles",
+      "documentaries": "Zawaya Documentaries & Eastern Civilization",
+      "trendingTopics": "Trending Topics",
+      "joinCommunity": "Join Zawaya Community"
+    }
+  }
+}

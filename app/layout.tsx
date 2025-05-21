@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import { IBM_Plex_Sans_Arabic, Noto_Sans_Arabic, Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import SiteHeader from "@/components/site-header"
-import SiteFooter from "@/components/site-footer"
+import { i18n } from "@/config/i18n-config"
+import { redirect } from "next/navigation"
 
 // Arabic fonts
 const ibmPlexArabic = IBM_Plex_Sans_Arabic({
@@ -39,18 +39,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Redirect root to default locale
+  if (typeof window === "undefined") {
+    redirect(`/${i18n.defaultLocale}`)
+  }
+
   return (
     <html
-      lang="ar"
-      dir="rtl"
+      lang={i18n.defaultLocale}
+      dir={i18n.defaultLocale === "ar" ? "rtl" : "ltr"}
       suppressHydrationWarning
       className={`${ibmPlexArabic.variable} ${notoSansArabic.variable} ${inter.variable}`}
     >
-      <body className="font-ibm-plex min-h-screen flex flex-col">
+      <body className={i18n.defaultLocale === "ar" ? "font-ibm-plex" : "font-inter"}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
+          {children}
         </ThemeProvider>
       </body>
     </html>

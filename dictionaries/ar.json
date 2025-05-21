@@ -1,0 +1,65 @@
+{
+  "navigation": {
+    "home": "الرئيسية",
+    "podcasts": "بودكاست",
+    "programs": "برامج",
+    "opinions": "آراء سياسية",
+    "articles": "مقالات",
+    "documentaries": "وثائقيات",
+    "civilization": "حضارة الشرق",
+    "about": "من نحن؟",
+    "writers": "منبر الكُتّاب",
+    "contact": "اتصل بنا"
+  },
+  "buttons": {
+    "subscribe": "اشترك الآن",
+    "explore": "استكشف المحتوى",
+    "newsletter": "اشترك في النشرة",
+    "watchNow": "شاهد الآن",
+    "browseEpisodes": "تصفح الحلقات",
+    "readMore": "اقرأ المزيد",
+    "listenNow": "استمع الآن",
+    "viewAll": "عرض الكل"
+  },
+  "theme": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  },
+  "footer": {
+    "quickLinks": "روابط سريعة",
+    "about": "عن زوايا",
+    "newsletter": "النشرة البريدية",
+    "newsletterDesc": "اشترك في نشرتنا البريدية للحصول على آخر المقالات والبودكاست والفيديوهات.",
+    "emailPlaceholder": "بريدك الإلكتروني",
+    "copyright": "جميع الحقوق محفوظة © 2025 زوايا"
+  },
+  "search": {
+    "placeholder": "ابحث في زوايا..."
+  },
+  "podcasts": {
+    "video": "مرئي",
+    "audio": "صوتي",
+    "latestEpisode": "أحدث حلقة",
+    "presenter": "تقديم",
+    "episodes": "حلقة",
+    "with": "مع"
+  },
+  "home": {
+    "hero": {
+      "title": "القصة من كل زواياها",
+      "subtitle": "منصة فكرية مستقلة تقدم محتوى متنوع من المقالات والبودكاست والفيديوهات لفهم أعمق لعالم متغير"
+    },
+    "sections": {
+      "latestReleases": "أحدث إصداراتنا",
+      "editorsPicks": "مختارات المحرر",
+      "featuredPodcasts": "بودكاست مميز",
+      "exclusivePrograms": "برامج حصرية",
+      "opinions": "من آراء زوايا",
+      "exploreArticles": "استكشف مقالاتنا",
+      "documentaries": "زوايا الوثائقية وحضارة الشرق",
+      "trendingTopics": "المواضيع الرائجة",
+      "joinCommunity": "انضم إلى مجتمع زوايا"
+    }
+  }
+}

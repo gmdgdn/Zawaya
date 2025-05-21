@@ -10,7 +10,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 24 100% 50%;
+    --primary: 24 95% 50%;
     --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -22,8 +22,26 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 24 100% 50%;
+    --ring: 24 95% 50%;
     --radius: 0.5rem;
+
+    /* Typography plugin variables */
+    --tw-prose-body: #374151;
+    --tw-prose-headings: #111827;
+    --tw-prose-lead: #4b5563;
+    --tw-prose-links: hsl(var(--primary));
+    --tw-prose-bold: #111827;
+    --tw-prose-counters: #6b7280;
+    --tw-prose-bullets: #d1d5db;
+    --tw-prose-hr: #e5e7eb;
+    --tw-prose-quotes: #111827;
+    --tw-prose-quote-borders: #e5e7eb;
+    --tw-prose-captions: #6b7280;
+    --tw-prose-code: #111827;
+    --tw-prose-pre-code: #e5e7eb;
+    --tw-prose-pre-bg: #1f2937;
+    --tw-prose-th-borders: #d1d5db;
+    --tw-prose-td-borders: #e5e7eb;
   }
 
   .dark {
@@ -33,7 +51,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 24 100% 50%;
+    --primary: 24 95% 50%;
     --primary-foreground: 0 0% 100%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -45,7 +63,25 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 24 100% 50%;
+    --ring: 24 95% 50%;
+
+    /* Typography plugin variables for dark mode */
+    --tw-prose-body: #d1d5db;
+    --tw-prose-headings: #fff;
+    --tw-prose-lead: #9ca3af;
+    --tw-prose-links: hsl(var(--primary));
+    --tw-prose-bold: #fff;
+    --tw-prose-counters: #9ca3af;
+    --tw-prose-bullets: #4b5563;
+    --tw-prose-hr: #374151;
+    --tw-prose-quotes: #f3f4f6;
+    --tw-prose-quote-borders: #374151;
+    --tw-prose-captions: #9ca3af;
+    --tw-prose-code: #fff;
+    --tw-prose-pre-code: #d1d5db;
+    --tw-prose-pre-bg: rgb(0 0 0 / 50%);
+    --tw-prose-th-borders: #4b5563;
+    --tw-prose-td-borders: #374151;
   }
 }
 
@@ -72,6 +108,13 @@
   h5,
   h6 {
     @apply font-noto font-bold;
+  }
+}
+
+@layer components {
+  /* Article content */
+  .article-content {
+    @apply prose dark:prose-invert max-w-none;
   }
 }
 
@@ -164,233 +207,6 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Content card styles */
-.content-card {
-  @apply bg-card rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg;
-}
-
-.content-card .content-card-image {
-  @apply aspect-video w-full object-cover transition-transform duration-500;
-}
-
-.content-card:hover .content-card-image {
-  @apply scale-105;
-}
-
-.content-card .content-card-badge {
-  @apply absolute top-3 right-3 bg-primary text-primary-foreground text-xs font-medium py-1 px-2 rounded-full;
-}
-
-/* Audio player styles */
-.audio-player {
-  @apply flex items-center gap-2 bg-muted/50 dark:bg-muted/20 rounded-full p-1 pr-3;
-}
-
-.audio-player-button {
-  @apply bg-primary text-primary-foreground rounded-full p-2 hover:bg-primary/90 transition-colors;
-}
-
-.audio-player-progress {
-  @apply w-full h-1 bg-muted-foreground/20 rounded-full overflow-hidden;
-}
-
-.audio-player-progress-bar {
-  @apply h-full bg-primary rounded-full;
-}
-
-/* Mega menu */
-.mega-menu {
-  @apply absolute top-full left-0 right-0 bg-card shadow-lg rounded-b-lg z-50 p-6 grid grid-cols-3 gap-6;
-}
-
-.mega-menu-column {
-  @apply flex flex-col gap-4;
-}
-
-.mega-menu-title {
-  @apply text-lg font-bold mb-2;
-}
-
-.mega-menu-link {
-  @apply text-sm hover:text-primary transition-colors;
-}
-
-/* Hero section */
-.hero-section {
-  @apply relative overflow-hidden;
-}
-
-.hero-section-overlay {
-  @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent;
-}
-
-.hero-section-content {
-  @apply relative z-10 container mx-auto px-4 py-16 md:py-24 text-white;
-}
-
-/* Newsletter form */
-.newsletter-form {
-  @apply flex flex-col sm:flex-row gap-3 max-w-md mx-auto;
-}
-
-.newsletter-input {
-  @apply bg-background border-0 focus-visible:ring-primary;
-}
-
-.newsletter-button {
-  @apply bg-primary hover:bg-primary/90 text-primary-foreground;
-}
-
-/* Podcast player */
-.podcast-player {
-  @apply bg-card shadow-lg rounded-lg p-4 sticky top-20;
-}
-
-.podcast-player-image {
-  @apply w-full aspect-square rounded-lg mb-4 object-cover;
-}
-
-.podcast-player-title {
-  @apply text-lg font-bold mb-2;
-}
-
-.podcast-player-host {
-  @apply text-sm text-muted-foreground mb-4;
-}
-
-.podcast-player-controls {
-  @apply flex items-center justify-between mb-2;
-}
-
-.podcast-player-progress {
-  @apply w-full h-1 bg-muted-foreground/20 rounded-full overflow-hidden mb-2;
-}
-
-.podcast-player-progress-bar {
-  @apply h-full bg-primary rounded-full;
-}
-
-.podcast-player-time {
-  @apply flex justify-between text-xs text-muted-foreground;
-}
-
-.podcast-player-options {
-  @apply flex justify-between mt-4;
-}
-
-.podcast-player-option {
-  @apply text-xs flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors;
-}
-
-/* Article reader */
-.article-content {
-  @apply prose prose-lg dark:prose-invert max-w-none prose-headings:font-noto prose-p:leading-relaxed;
-}
-
-.article-content h1 {
-  @apply text-3xl md:text-4xl mb-6;
-}
-
-.article-content h2 {
-  @apply text-2xl md:text-3xl mt-8 mb-4;
-}
-
-.article-content p {
-  @apply mb-6;
-}
-
-.article-content a {
-  @apply text-primary hover:text-primary/80 transition-colors;
-}
-
-.article-content blockquote {
-  @apply border-r-4 border-primary pr-4 italic;
-}
-
-.article-content ul,
-.article-content ol {
-  @apply my-6;
-}
-
-.article-content li {
-  @apply mb-2;
-}
-
-.article-content img {
-  @apply rounded-lg my-8 mx-auto;
-}
-
-/* Writer profile */
-.writer-profile {
-  @apply flex flex-col md:flex-row gap-6 items-start;
-}
-
-.writer-profile-image {
-  @apply w-32 h-32 rounded-full object-cover;
-}
-
-.writer-profile-info {
-  @apply flex-1;
-}
-
-.writer-profile-name {
-  @apply text-2xl font-bold mb-2;
-}
-
-.writer-profile-bio {
-  @apply text-muted-foreground mb-4;
-}
-
-.writer-profile-social {
-  @apply flex gap-3;
-}
-
-.writer-profile-social-link {
-  @apply text-muted-foreground hover:text-primary transition-colors;
-}
-
-/* Program card */
-.program-card {
-  @apply relative overflow-hidden rounded-lg;
-}
-
-.program-card-image {
-  @apply w-full aspect-video object-cover transition-transform duration-500;
-}
-
-.program-card:hover .program-card-image {
-  @apply scale-105;
-}
-
-.program-card-overlay {
-  @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent;
-}
-
-.program-card-content {
-  @apply absolute bottom-0 left-0 right-0 p-4;
-}
-
-.program-card-title {
-  @apply text-white text-xl font-bold mb-1;
-}
-
-.program-card-description {
-  @apply text-white/80 text-sm;
-}
-
-/* Tab navigation */
-.tab-navigation {
-  @apply flex border-b border-border mb-6 overflow-x-auto;
-}
-
-.tab-item {
-  @apply px-4 py-2 text-sm font-medium border-b-2 border-transparent hover:text-primary transition-colors whitespace-nowrap;
-}
-
-.tab-item.active {
-  @apply border-primary text-primary;
-}
-
 /* Section header */
 .section-header {
   @apply flex items-center justify-between mb-6;
@@ -421,6 +237,15 @@
   @apply text-muted-foreground text-lg max-w-3xl;
 }
 
+/* Tab navigation */
+.tab-navigation {
+  @apply flex border-b border-border mb-6 overflow-x-auto;
+}
+
+.tab-item {
+  @apply px-4 py-2 text-sm font-medium border-b-2 border-transparent hover:text-primary transition-colors whitespace-nowrap;
+}
+
 /* Trending topics */
 .trending-topics {
   @apply flex flex-wrap gap-3;
@@ -428,134 +253,6 @@
 
 .trending-topic {
   @apply bg-background dark:bg-muted px-4 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors;
-}
-
-/* Author badge */
-.author-badge {
-  @apply flex items-center gap-2;
-}
-
-.author-image {
-  @apply w-8 h-8 rounded-full object-cover;
-}
-
-.author-name {
-  @apply text-sm font-medium;
-}
-
-.author-verified {
-  @apply text-primary;
-}
-
-/* Category badge */
-.category-badge {
-  @apply inline-block bg-muted px-2 py-1 rounded text-xs font-medium hover:bg-primary hover:text-primary-foreground transition-colors;
-}
-
-/* Date badge */
-.date-badge {
-  @apply text-xs text-muted-foreground;
-}
-
-/* Share buttons */
-.share-buttons {
-  @apply flex gap-2;
-}
-
-.share-button {
-  @apply p-2 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors;
-}
-
-/* Comments section */
-.comments-section {
-  @apply mt-8 pt-8 border-t border-border;
-}
-
-.comments-title {
-  @apply text-xl font-bold mb-4;
-}
-
-.comment {
-  @apply border-b border-border py-4 last:border-0;
-}
-
-.comment-header {
-  @apply flex items-center justify-between mb-2;
-}
-
-.comment-author {
-  @apply flex items-center gap-2;
-}
-
-.comment-author-image {
-  @apply w-8 h-8 rounded-full object-cover;
-}
-
-.comment-author-name {
-  @apply text-sm font-medium;
-}
-
-.comment-date {
-  @apply text-xs text-muted-foreground;
-}
-
-.comment-content {
-  @apply text-sm;
-}
-
-.comment-actions {
-  @apply flex gap-4 mt-2;
-}
-
-.comment-action {
-  @apply text-xs text-muted-foreground hover:text-primary transition-colors;
-}
-
-/* Form elements */
-.form-group {
-  @apply mb-4;
-}
-
-.form-label {
-  @apply block text-sm font-medium mb-1;
-}
-
-.form-input {
-  @apply w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
-}
-
-.form-textarea {
-  @apply w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-h-[100px];
-}
-
-.form-submit {
-  @apply bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md text-sm font-medium transition-colors;
-}
-
-/* Pagination */
-.pagination {
-  @apply flex justify-center gap-1 mt-8;
-}
-
-.pagination-item {
-  @apply w-10 h-10 flex items-center justify-center rounded-md hover:bg-muted transition-colors;
-}
-
-.pagination-item.active {
-  @apply bg-primary text-primary-foreground;
-}
-
-.pagination-ellipsis {
-  @apply w-10 h-10 flex items-center justify-center;
-}
-
-.pagination-prev,
-.pagination-next {
-  @apply w-10 h-10 flex items-center justify-center rounded-md hover:bg-muted transition-colors;
-}
-
-.pagination-disabled {
-  @apply opacity-50 cursor-not-allowed;
 }
 
 /* RTL specific adjustments */
